@@ -1,36 +1,49 @@
 <template>
-  <v-app>
-    <v-app-bar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        text
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
-    </v-app-bar>
-
-    <v-content>
-      <HelloWorld/>
-    </v-content>
-  </v-app>
+    <v-app>
+        <div class="container">
+            <app-header></app-header>
+            <hr>
+            <v-container fluid>
+                <v-row>
+                    <v-col cols="12" sm="6">
+                        <app-servers></app-servers>
+                    </v-col>
+                    <v-col cols="12" sm="6">
+                        <app-server-details></app-server-details>
+                    </v-col>
+                </v-row>
+            </v-container>
+            <hr>
+            <app-content></app-content>
+            <hr>
+            <app-footer></app-footer>
+        </div>
+        </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+    import Header from './components/Header.vue';
+    import Footer from './components/Footer.vue';
+    import Servers from './components/Servers.vue';
+    import ServerDetails from './components/ServerDetails.vue';
+    import Content from './components/Content.vue';
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld,
-  },
-  data: () => ({
-    //
-  }),
-};
+    export default {
+        data: () => {
+          return {
+            status: "Good"
+          }
+        },
+        components: {
+            'app-header': Header,
+            'app-servers': Servers,
+            'app-server-details': ServerDetails,
+            'app-content': Content,
+            'app-footer': Footer
+        }
+    }
 </script>
+
+<style>
+
+</style>
